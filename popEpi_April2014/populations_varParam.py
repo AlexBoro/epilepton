@@ -16,7 +16,10 @@ import KOP_v5 as KOP
 #import drawGraph2
 from spectrumAnalysis import bandPassFilter
 
-import argparse 
+import argparse
+
+#Usage: run populations_varParam --t_stop 3000 --nbn1 40 --nbn2 40 --g_x1x1 0.2 --g_x2x2 0.2 --g_x1x2 0.1 --g_x2x1 0.1 --x0="-2." --CpES1 0.2 --CpES2 0.2
+#Why --x0="-2."? Problem with passing -2.
 
 parser = argparse.ArgumentParser(description='Launch Epileptor derived population equations - ex: python populations_args --t_stop 5000 --CpES 0.1 --CpCS 0.9')
 parser.add_argument('--t_stop', action='store', dest='t_stop', default=3000, help='time of simulation')
@@ -32,7 +35,7 @@ parser.add_argument('--nbn2', action='store', dest='nbn2', default=10, help='num
 parser.add_argument('--g_x1x1', action='store', dest='g_x1x1', default=0.2, help='collateral synaptic (maximum) conductance between neurons from population 1')
 parser.add_argument('--g_x2x2', action='store', dest='g_x2x2', default=0.2, help='collateral synaptic (maximum) conductance between neurons from population 2')
 parser.add_argument('--g_x1x2', action='store', dest='g_x1x2', default=0.2, help='synaptic (maximum) conductance between neurons from population 1 to population 2')
-parser.add_argument('--g_x2x1', action='store', dest='g_x2x1', default=0.2, help='fast synaptic (maximum) conductance between neurons from population 2 to population')
+parser.add_argument('--g_x2x1', action='store', dest='g_x2x1', default=0.2, help='fast synaptic (maximum) conductance between neurons from population 2 to population 1')
 parser.add_argument('--g_x2x1_slow', action='store', dest='g_x2x1_slow', default=0., help='slow synaptic (maximum) conductance between neurons from population 2 to population 1')
 parser.add_argument('--g_x2x2_slow', action='store', dest='g_x2x2_slow', default=0., help='slow synaptic (maximum) conductance between neurons from population 2 to population 1')
 parser.add_argument('--I2', action='store', dest='I2', default=0.8, help='baseline input current in population 2 neurons')
